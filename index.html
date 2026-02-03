@@ -74,11 +74,11 @@
 
                     <div class="space-y-6">
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-4 text-white">Định danh người sở hữu</label>
-                            <input type="text" id="user" placeholder="Ví dụ: Thanh Trung..." class="w-full bg-slate-900/80 border border-white/5 p-5 rounded-2xl outline-none focus:border-yellow-500 transition-all text-white">
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-4 text-white italic">Username (Viết liền không dấu)</label>
+                            <input type="text" id="user" placeholder="Ví dụ: thanhtrung" class="w-full bg-slate-900/80 border border-white/5 p-5 rounded-2xl outline-none focus:border-yellow-500 transition-all text-white placeholder:text-slate-700">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-4 text-white">Ngày kích hoạt hiển thị</label>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-4 text-white italic">Ngày kích hoạt</label>
                             <input type="date" id="join_date" value="2024-01-01" class="w-full bg-slate-900/80 border border-white/5 p-5 rounded-2xl outline-none focus:border-yellow-500 transition-all text-slate-300 px-5">
                         </div>
                         <button onclick="generate()" id="btnGen" class="w-full py-6 rounded-2xl btn-premium text-black font-black text-xl uppercase tracking-tighter">
@@ -87,7 +87,7 @@
 
                         <div class="pt-4 flex items-center justify-center gap-3 opacity-60">
                             <i class="fas fa-user-shield text-emerald-500"></i>
-                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Cam kết: Không thu thập dữ liệu người dùng 100%</p>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Hoàn toàn bảo mật - Không thu thập thông tin người dùng</p>
                         </div>
                     </div>
 
@@ -113,7 +113,7 @@
                     <div class="space-y-1">
                         <div class="faq-item active border-l-4 border-emerald-500 bg-emerald-500/10 mb-4 rounded-r-xl">
                             <div class="faq-question py-4 px-4 flex justify-between items-center" onclick="toggleFaq(this)">
-                                <span class="text-sm font-black text-emerald-400 uppercase italic pr-4 tracking-tighter">Giải pháp DNS cài trực tiếp vào máy</span>
+                                <span class="text-sm font-black text-emerald-400 uppercase italic pr-4 tracking-tighter">Cấu hình DNS cài trực tiếp vào máy</span>
                                 <i class="fas fa-bolt faq-icon transition-transform text-xs text-emerald-500"></i>
                             </div>
                             <div class="faq-answer px-4">
@@ -128,7 +128,7 @@
 
                         <div class="faq-item">
                             <div class="faq-question py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-                                <span class="text-xs font-semibold text-slate-400 uppercase">1. Bật HTTPS Decryption như thế nào?</span>
+                                <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-tighter">1. Bật HTTPS Decryption như thế nào?</span>
                                 <i class="fas fa-chevron-down faq-icon transition-transform text-[10px]"></i>
                             </div>
                             <div class="faq-answer text-[11px] text-slate-500 leading-relaxed">
@@ -138,7 +138,7 @@
 
                         <div class="faq-item">
                             <div class="faq-question py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-                                <span class="text-xs font-semibold text-slate-400 uppercase">2. Cách tin cậy chứng chỉ trên iPhone?</span>
+                                <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-tighter">2. Cách tin cậy chứng chỉ trên iPhone?</span>
                                 <i class="fas fa-chevron-down faq-icon transition-transform text-[10px]"></i>
                             </div>
                             <div class="faq-answer text-[11px] text-slate-500 leading-relaxed">
@@ -148,21 +148,11 @@
 
                         <div class="faq-item">
                             <div class="faq-question py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-                                <span class="text-xs font-semibold text-slate-400 uppercase">3. Tại sao cài xong vẫn không có Gold?</span>
+                                <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-tighter">3. Tại sao cài xong vẫn không có Gold?</span>
                                 <i class="fas fa-chevron-down faq-icon transition-transform text-[10px]"></i>
                             </div>
                             <div class="faq-answer text-[11px] text-slate-500 leading-relaxed">
-                                Hãy chắc chắn bạn đã: 1. Bật Shadowrocket (Connected). 2. Đã thêm Module vào mục Modules. 3. Đã tin cậy chứng chỉ. Nếu vẫn lỗi, hãy thử gỡ Locket ra cài lại.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-                                <span class="text-xs font-semibold text-slate-400 uppercase">4. Dùng cái này có bị mất acc không?</span>
-                                <i class="fas fa-chevron-down faq-icon transition-transform text-[10px]"></i>
-                            </div>
-                            <div class="faq-answer text-[11px] text-slate-500 leading-relaxed">
-                                Hoàn toàn không. Module chỉ can thiệp vào mã hiển thị giao diện Gold trên máy bạn, không gửi thông tin tài khoản hay ảnh của bạn đi bất cứ đâu.
+                                Hãy chắc chắn bạn đã: 1. Bật Shadowrocket (Connected). 2. Đã thêm Module vào mục Modules. 3. Đã tin cậy chứng chỉ. Nếu vẫn lỗi, hãy gỡ Locket ra cài lại.
                             </div>
                         </div>
                     </div>
@@ -181,22 +171,24 @@
             </a>
             <a href="https://ngdanhthanhtrung.github.io/Bank/" target="_blank" class="glass p-7 rounded-[2rem] flex items-center gap-5 hover:translate-y-[-5px] transition-all group border-b-4 border-rose-500">
                 <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-all"><i class="fas fa-coffee text-xl"></i></div>
-                <div><p class="text-[9px] font-black text-slate-500 uppercase tracking-widest">Ủng hộ Server</p><p class="text-md text-rose-400">Donate Me</p></div>
+                <div><p class="text-[9px] font-black text-slate-500 uppercase tracking-widest">Duy trì Server</p><p class="text-md text-rose-400">Donate Me</p></div>
             </a>
         </div>
 
-        <footer class="text-center pb-10 opacity-30 text-[9px] font-black tracking-[0.5em] uppercase text-white">© 2026 Developed by NgDanhThanhTrung | Privacy First</footer>
+        <footer class="text-center pb-10 opacity-30 text-[9px] font-black tracking-[0.5em] uppercase text-white">© 2026 Developed by NgDanhThanhTrung | No Data Collection</footer>
     </div>
 
-    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-8 py-4 rounded-full text-white border border-yellow-500/30 opacity-0 transition-all duration-500 z-50 text-xs font-bold uppercase pointer-events-none">Đã sao chép link cá nhân!</div>
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-8 py-4 rounded-full text-white border border-yellow-500/30 opacity-0 transition-all duration-500 z-50 text-xs font-bold uppercase pointer-events-none tracking-widest">Đã sao chép link cá nhân!</div>
 
     <script>
         function toggleFaq(el) { el.parentElement.classList.toggle('active'); }
         async function generate() {
-            const user = document.getElementById('user').value.trim();
+            let user = document.getElementById('user').value.trim().replace(/\s+/g, ''); // Tự động xóa khoảng trắng
             const join_date = document.getElementById('join_date').value;
             const btn = document.getElementById('btnGen');
-            if(!user) return alert("Vui lòng nhập định danh cá nhân!");
+            
+            if(!user) return alert("Vui lòng nhập Username!");
+            
             btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner animate-spin text-2xl"></i>';
             try {
                 const res = await fetch('/api/generate', {
@@ -209,7 +201,7 @@
                     document.getElementById('resultArea').classList.remove('hidden');
                     document.getElementById('resUrl').innerText = data.url;
                     document.getElementById('quickInstall').href = `shadowrocket://config/add/${data.url}`;
-                    btn.innerHTML = 'KHỞI TẠO HOÀN TẤT';
+                    btn.innerHTML = 'HOÀN TẤT';
                 } else { alert(data.error); btn.disabled = false; btn.innerHTML = 'THỬ LẠI'; }
             } catch (e) { alert("Lỗi kết nối!"); btn.disabled = false; }
         }
