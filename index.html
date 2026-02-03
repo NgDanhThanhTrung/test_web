@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locket NDTT Premium - Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #fbbf24; --bg-dark: #020617; }
+        body { 
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a, #020617);
+            color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh;
+        }
+        .glass { 
+            background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .gold-text {
+            background: linear-gradient(to right, #fbbf24, #fef3c7, #f59e0b, #fbbf24);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-size: 200% auto; animation: shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .hover-lift:hover { transform: translateY(-8px); }
+        .step-number {
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8">
+
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-16 relative">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 gold-text">Locket NDTT</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                Hệ thống tạo Module Shadowrocket mở khóa <span class="text-yellow-500 font-semibold">Locket Gold</span> vĩnh viễn.
+            </p>
+        </header>
+
+        <div class="glass rounded-[3rem] p-8 md:p-12 mb-12 relative overflow-hidden">
+            <div class="max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-3">
+                        <label class="text-xs font-bold uppercase text-gray-500 ml-2 tracking-widest">Tên Module (User)</label>
+                        <input type="text" id="user" placeholder="Ví dụ: trungnd" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-2xl outline-none focus:border-yellow-500/50 transition-all">
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-xs font-bold uppercase text-gray-500 ml-2 tracking-widest">Ngày Tham Gia ({date})</label>
+                        <input type="date" id="join_date" value="2024-01-01" class="w-full bg-slate-900/50 border border-white/10 p-5 rounded-2xl outline-none focus:border-yellow-500/50 transition-all text-gray-300">
+                    </div>
+                </div>
+
+                <button onclick="generate()" id="btnGen" class="w-full py-6 rounded-2xl bg-yellow-500 hover:bg-yellow-400 text-black font-black text-xl shadow-xl transition-all flex items-center justify-center gap-3">
+                    <i class="fas fa-wand-magic-sparkles"></i> TẠO MODULE CỦA TÔI
+                </button>
+
+                <div id="resultArea" class="mt-10 hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div class="p-8 bg-black/40 border border-yellow-500/20 rounded-[2.5rem] space-y-5 text-center">
+                        <code id="resUrl" class="block p-5 bg-black/60 rounded-xl text-[10px] md:text-xs break-all text-blue-400 border border-white/5 font-mono"></code>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="copyLink()" class="bg-white/5 hover:bg-white/10 py-4 rounded-xl font-bold transition">SAO CHÉP LINK</button>
+                            <a id="quickInstall" href="#" class="bg-yellow-500 text-black py-4 rounded-xl font-bold transition text-center">CÀI NHANH</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <i class="fas fa-book-open text-yellow-500"></i> Hướng Dẫn Cài Đặt
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-[2rem] hover-lift">
+                    <span class="text-4xl font-black step-number mb-4 block">01</span>
+                    <h3 class="text-lg font-bold mb-3 text-white">Tạo Module</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nhập tên của bạn và chọn ngày tham gia mong muốn, sau đó nhấn nút <b>Tạo Module</b> để nhận liên kết cấu hình riêng.</p>
+                </div>
+                <div class="glass p-8 rounded-[2rem] hover-lift">
+                    <span class="text-4xl font-black step-number mb-4 block">02</span>
+                    <h3 class="text-lg font-bold mb-3 text-white">Thêm Vào Shadowrocket</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nhấn <b>Cài nhanh</b> hoặc Copy Link dán vào phần <b>Modules</b> trong Shadowrocket. Đảm bảo Module đã được bật (dấu tích xanh).</p>
+                </div>
+                <div class="glass p-8 rounded-[2rem] hover-lift">
+                    <span class="text-4xl font-black step-number mb-4 block">03</span>
+                    <h3 class="text-lg font-bold mb-3 text-white">HTTPS Decryption</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Vào <b>Cài đặt</b> > <b>HTTPS Decryption</b> > Bật <b>Decryption</b> và <b>Tin cậy chứng chỉ</b> trong cài đặt iPhone để kích hoạt Gold.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+            <a href="https://t.me/NgDanhThanhTrung" target="_blank" class="glass p-6 rounded-3xl flex items-center gap-4 hover-lift group">
+                <div class="w-12 h-12 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fab fa-telegram-plane text-xl"></i></div>
+                <div><p class="text-[10px] font-bold text-gray-500 uppercase">Hỗ trợ</p><p class="font-bold text-white text-sm">Telegram</p></div>
+            </a>
+            <a href="https://ngdanhthanhtrung.github.io/Bank/" target="_blank" class="glass p-6 rounded-3xl flex items-center gap-4 hover-lift group">
+                <div class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-all"><i class="fas fa-heart text-xl"></i></div>
+                <div><p class="text-[10px] font-bold text-gray-500 uppercase">Duy trì</p><p class="font-bold text-white text-sm">Donate</p></div>
+            </a>
+            <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="glass p-6 rounded-3xl flex items-center gap-4 hover-lift group">
+                <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all"><i class="fab fa-facebook-f text-xl"></i></div>
+                <div><p class="text-[10px] font-bold text-gray-500 uppercase">Cá nhân</p><p class="font-bold text-white text-sm">Facebook</p></div>
+            </a>
+            <div class="glass p-6 rounded-3xl flex items-center gap-4">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500"><span class="relative flex h-3 w-3"><span class="animate-ping absolute h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative h-3 w-3 rounded-full bg-emerald-500"></span></span></div>
+                <div><p class="text-[10px] font-bold text-gray-500 uppercase font-bold text-gray-500 uppercase">Hệ thống</p><p class="font-bold text-emerald-400 text-sm">Online 24/7</p></div>
+            </div>
+        </div>
+
+        <footer class="text-center pb-12 opacity-40 text-[10px] font-bold tracking-[0.3em] uppercase">© 2026 Developed by NgDanhThanhTrung</footer>
+    </div>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-8 py-4 rounded-full text-white border border-yellow-500/30 opacity-0 transition-all duration-500 z-50 text-sm font-bold pointer-events-none">ĐÃ SAO CHÉP LIÊN KẾT!</div>
+
+    <script>
+        async function generate() {
+            const user = document.getElementById('user').value.trim();
+            const join_date = document.getElementById('join_date').value;
+            const btn = document.getElementById('btnGen');
+            if(!user || !join_date) return alert("Vui lòng nhập đầy đủ thông tin!");
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i> ĐANG TẠO...';
+            try {
+                const res = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ user, join_date })
+                });
+                const data = await res.json();
+                if(data.success) {
+                    document.getElementById('resultArea').classList.remove('hidden');
+                    document.getElementById('resUrl').innerText = data.url;
+                    document.getElementById('quickInstall').href = `shadowrocket://config/add/${data.url}`;
+                    btn.innerHTML = '<i class="fas fa-check"></i> HOÀN THÀNH';
+                } else {
+                    alert("Lỗi: " + data.error);
+                    btn.disabled = false; btn.innerHTML = 'TẠO MODULE CỦA TÔI';
+                }
+            } catch (e) { alert("Lỗi kết nối!"); btn.disabled = false; }
+        }
+        function copyLink() {
+            const text = document.getElementById('resUrl').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.style.opacity = '1';
+                setTimeout(() => toast.style.opacity = '0', 3000);
+            });
+        }
+    </script>
+</body>
+</html>
