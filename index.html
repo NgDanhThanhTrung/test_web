@@ -6,165 +6,129 @@
     <title>Locket NDTT | Module Personalized</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #fbbf24; }
         body { 
-            background: #020617;
-            background-image: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
-            color: #f1f5f9; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh;
+            background: #020617; 
+            color: #f1f5f9; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .bento-card { 
-            background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-radius: 2rem; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .bento-card:hover { border-color: rgba(251, 191, 36, 0.3); transform: translateY(-5px); }
-
-        .gold-text { background: linear-gradient(to right, #fbbf24, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: shine 3s linear infinite; }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .faq-item { border-radius: 1.25rem; transition: all 0.4s; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); }
-        .faq-item.active { background: rgba(251, 191, 36, 0.04); border-color: rgba(251, 191, 36, 0.15); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s ease; opacity: 0; }
-        .faq-item.active .faq-answer { max-height: 500px; opacity: 1; padding: 0 1.25rem 1.25rem; }
-
-        .input-style { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; transition: 0.3s; }
-        .input-style:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); }
+        .bento-card:active { transform: scale(0.98); }
         
-        .btn-main { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); color: #000; font-weight: 800; border-radius: 1rem; transition: 0.3s; }
-        .btn-main:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .gold-text { 
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .glow-red { animation: glow-red 2s infinite; }
-        @keyframes glow-red { 0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); } 50% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); } 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); } }
+        /* Tối ưu FAQ mượt mà hơn */
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            padding-bottom: 1rem;
+        }
+        .faq-content { overflow: hidden; }
+
+        .input-focus:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-soft { animation: pulse-soft 2s infinite; }
     </style>
 </head>
-<body class="py-12 px-4">
+<body class="p-4 md:p-8">
 
-    <div class="max-w-5xl mx-auto">
-        <header class="text-center mb-16" data-aos="zoom-in">
-            <h1 class="text-6xl md:text-8xl font-black italic gold-text tracking-tighter mb-4">LOCKET NDTT</h1>
-            <div class="flex items-center justify-center gap-3">
-                <span class="h-[1px] w-8 bg-slate-800"></span>
-                <p class="text-slate-500 font-bold uppercase tracking-[0.4em] text-[9px]">Custom Module Interface</p>
-                <span class="h-[1px] w-8 bg-slate-800"></span>
-            </div>
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-5xl md:text-7xl font-black italic gold-text tracking-tighter mb-2">LOCKET NDTT</h1>
+            <p class="text-slate-500 text-[10px] uppercase tracking-[0.3em] font-bold">Personal Module Creator • 2026</p>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             
-            <div class="lg:col-span-7 space-y-6">
-                <div class="bento-card p-6 border-l-4 border-red-500 glow-red" data-aos="fade-up">
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div class="flex items-center gap-5">
-                            <div class="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500 text-2xl border border-red-500/20">
-                                <i class="fa-solid fa-cloud-arrow-down animate-pulse"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-black text-white uppercase italic text-sm tracking-tight">Dịch vụ Thuê Tài Khoản</h3>
-                                <p class="text-slate-400 text-[11px] italic leading-tight">Mượn ID tải Shadowrocket chỉ với <span class="text-white font-bold underline">10.000đ</span></p>
-                            </div>
-                        </div>
-                        <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="bg-red-500 text-white px-8 py-3 rounded-xl font-black text-[10px] uppercase hover:bg-red-600 transition-all tracking-widest italic shadow-lg shadow-red-500/20">Thuê tài khoản</a>
+            <div class="bento-card p-6 border-l-4 border-red-500 flex flex-col justify-between group">
+                <div class="flex items-start justify-between">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center text-red-500">
+                        <i class="fa-solid fa-key text-xl"></i>
                     </div>
+                    <span class="text-[10px] bg-red-500/10 text-red-500 px-2 py-1 rounded-md font-bold italic animate-soft">HOT SERVICE</span>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-black text-white uppercase italic text-sm">Thuê Tài Khoản Tải App</h3>
+                    <p class="text-slate-400 text-xs mt-1">Mượn ID Apple tải Shadowrocket chỉ <span class="text-white font-bold underline">10.000đ</span></p>
+                </div>
+                <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="mt-4 w-full bg-red-600 text-white py-3 rounded-xl font-black text-[10px] uppercase text-center hover:bg-red-500 transition-colors">Liên hệ thuê ngay</a>
+            </div>
+
+            <div class="bento-card p-6 md:row-span-2">
+                <h2 class="text-lg font-black mb-6 flex items-center gap-2 italic uppercase">
+                    <i class="fa-solid fa-wand-magic-sparkles text-yellow-500"></i> Cấu Hình
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-500 uppercase tracking-widest ml-1">Username (Viết liền)</label>
+                        <input type="text" id="user" placeholder="ví dụ: thanhtrung" class="w-full mt-1 p-4 bg-slate-900/50 border border-white/10 rounded-xl text-sm text-white input-focus">
+                    </div>
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-500 uppercase tracking-widest ml-1">Ngày Hiển Thị</label>
+                        <input type="date" id="join_date" value="2026-02-03" class="w-full mt-1 p-4 bg-slate-900/50 border border-white/10 rounded-xl text-sm text-white input-focus">
+                    </div>
+                    <button onclick="generate()" id="btnGen" class="w-full py-4 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black rounded-xl text-xs uppercase tracking-widest hover:brightness-110 transition-all">Tạo Module</button>
                 </div>
 
-                <div class="bento-card p-8 md:p-10" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="text-lg font-black mb-8 flex items-center gap-3 italic uppercase text-white">
-                        <i class="fa-solid fa-bolt-auto text-yellow-500"></i> Khởi tạo Module
-                    </h2>
-
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1 italic">Username (Viết liền)</label>
-                                <input type="text" id="user" placeholder="ví dụ: thanhtrung" class="w-full p-4 input-style text-sm text-white">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1 italic">Ngày hiển thị</label>
-                                <input type="date" id="join_date" value="2026-02-03" onkeydown="return false" class="w-full p-4 input-style text-sm text-white cursor-pointer">
-                            </div>
+                <div id="resultArea" class="mt-6 hidden space-y-3">
+                    <div class="p-4 bg-black/40 rounded-xl border border-white/5">
+                        <code id="resUrl" class="block text-[10px] break-all text-blue-400 font-mono mb-4 leading-relaxed"></code>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="copyLink()" class="py-3 bg-white/5 rounded-lg text-[9px] font-bold uppercase hover:bg-white/10 text-white italic">Sao chép</button>
+                            <a id="quickInstall" href="#" class="py-3 bg-blue-600 rounded-lg text-[9px] font-bold uppercase text-center text-white italic">Cài nhanh</a>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <button onclick="generate()" id="btnGen" class="w-full py-5 btn-main text-sm uppercase tracking-[0.2em] italic shadow-xl">
-                            Xác nhận khởi tạo
+            <div class="bento-card p-6">
+                <h2 class="text-lg font-black mb-4 italic uppercase text-yellow-500">Giải Đáp</h2>
+                <div class="space-y-2">
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-2 text-left">
+                            <span class="text-[10px] font-bold uppercase italic text-slate-300">01 • DNS Tự động là gì?</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] opacity-50"></i>
                         </button>
-
-                        <div class="flex items-center justify-center gap-2 opacity-40">
-                            <i class="fa-solid fa-lock-shield text-[10px]"></i>
-                            <p class="text-[9px] font-bold uppercase tracking-widest italic text-white">Privacy & Security Guaranteed</p>
-                        </div>
-                    </div>
-
-                    <div id="resultArea" class="mt-8 hidden animate-in fade-in zoom-in duration-500">
-                        <div class="p-6 bg-black/40 rounded-2xl border border-yellow-500/20 relative">
-                            <code id="resUrl" class="block p-4 bg-slate-950 rounded-xl text-[10px] break-all text-blue-400 font-mono mb-5 border border-white/5"></code>
-                            <div class="grid grid-cols-2 gap-4">
-                                <button onclick="copyLink()" class="bg-white/5 py-3 rounded-xl text-[10px] font-bold uppercase hover:bg-white/10 transition-all text-white border border-white/10 italic">Sao chép</button>
-                                <a id="quickInstall" href="#" class="bg-blue-600 text-white py-3 rounded-xl text-[10px] font-bold text-center uppercase hover:bg-blue-500 transition-all italic">Cài nhanh</a>
+                        <div class="faq-answer">
+                            <div class="faq-content text-[10px] text-slate-400 leading-relaxed">
+                                Thuê cấu hình DNS trực tiếp vào iPhone. Không cần bật App Shadowrocket vẫn có Premium, cực kỳ ổn định và tiết kiệm pin.
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-5">
-                <div class="bento-card p-8 h-full" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="text-lg font-black mb-8 italic uppercase text-yellow-500 flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question"></i> Giải đáp lỗi
-                    </h2>
-                    
-                    <div class="space-y-3">
-                        <div class="faq-item active border-l-2 border-emerald-500/50">
-                            <div class="faq-question flex justify-between items-center p-4 cursor-pointer" onclick="toggleFaq(this)">
-                                <span class="text-[11px] font-black text-emerald-400 uppercase italic">➔ Cấu hình DNS (Khuyên dùng)</span>
-                                <i class="fa-solid fa-bolt-lightning text-emerald-500 text-xs"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p class="text-[11px] text-slate-400 mb-4 leading-relaxed">Đây là phương pháp thuê cấu hình trực tiếp vào máy. Locket sẽ tự động Gold mà không cần bật App Shadowrocket, cực kỳ tiện và tiết kiệm pin.</p>
-                                <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="block w-full py-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-black text-center text-[10px] uppercase rounded-xl italic hover:bg-emerald-500/20 transition-all">Inbox cài DNS ngay</a>
-                            </div>
-                        </div>
-
-                        <div class="faq-item" onclick="toggleFaq(this)">
-                            <div class="faq-question flex justify-between items-center p-4 cursor-pointer">
-                                <span class="text-[10px] font-bold text-slate-300 uppercase italic">01 • Bật HTTPS Decryption</span>
-                                <i class="fa-solid fa-chevron-down text-[10px] opacity-30"></i>
-                            </div>
-                            <div class="faq-answer text-[10px] text-slate-500 leading-relaxed">
-                                Shadowrocket ➔ Config ➔ (i) file ➔ **HTTPS Decryption** ➔ Bật ➔ **Generate New CA Certificate** ➔ **Install Config Profile**.
-                            </div>
-                        </div>
-
-                        <div class="faq-item" onclick="toggleFaq(this)">
-                            <div class="faq-question flex justify-between items-center p-4 cursor-pointer">
-                                <span class="text-[10px] font-bold text-slate-300 uppercase italic">02 • Tin cậy chứng chỉ</span>
-                                <i class="fa-solid fa-chevron-down text-[10px] opacity-30"></i>
-                            </div>
-                            <div class="faq-answer text-[10px] text-slate-500 leading-relaxed">
-                                Cài đặt iPhone ➔ Đã tải hồ sơ ➔ **Cài đặt**. Tiếp theo: Cài đặt chung ➔ Giới thiệu ➔ **Cài đặt tin cậy chứng nhận** ➔ Bật Shadowrocket.
-                            </div>
-                        </div>
-
-                        <div class="faq-item" onclick="toggleFaq(this)">
-                            <div class="faq-question flex justify-between items-center p-4 cursor-pointer">
-                                <span class="text-[10px] font-bold text-slate-300 uppercase italic">03 • Tại sao không hiện Gold?</span>
-                                <i class="fa-solid fa-chevron-down text-[10px] opacity-30"></i>
-                            </div>
-                            <div class="faq-answer text-[10px] text-slate-500 leading-relaxed">
-                                Hãy đảm bảo đã: Bật **Connected**, thêm **Module** thành công và đã **Tin cậy chứng chỉ**. Nếu vẫn không được, hãy xoá Locket và tải lại.
-                            </div>
-                        </div>
-
-                        <div class="faq-item" onclick="toggleFaq(this)">
-                            <div class="faq-question flex justify-between items-center p-4 cursor-pointer">
-                                <span class="text-[10px] font-bold text-slate-300 uppercase italic">04 • Vấn đề bảo mật</span>
-                                <i class="fa-solid fa-chevron-down text-[10px] opacity-30"></i>
-                            </div>
-                            <div class="faq-answer text-[10px] text-slate-500 leading-relaxed">
-                                Module này chỉ thay đổi hiển thị gói Premium trong App của riêng bạn. Chúng tôi cam kết không xem hoặc lưu giữ bất kỳ dữ liệu cá nhân nào.
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-2 text-left">
+                            <span class="text-[10px] font-bold uppercase italic text-slate-300">02 • Cách sửa lỗi không Gold?</span>
+                            <i class="fa-solid fa-chevron-down text-[8px] opacity-50"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-content text-[10px] text-slate-400 leading-relaxed">
+                                Kiểm tra: Đã bật Shadowrocket chưa? Đã thêm Module chưa? Đã tin cậy chứng chỉ chưa? Nếu rồi mà vẫn lỗi hãy gỡ Locket cài lại.
                             </div>
                         </div>
                     </div>
@@ -172,45 +136,39 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8 mb-20">
-            <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="bento-card p-6 flex items-center justify-center gap-4 hover:bg-blue-500/5 group" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fa-brands fa-facebook-messenger text-2xl text-blue-500 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-black uppercase italic text-white">Admin FB</span>
+        <div class="grid grid-cols-3 gap-3 mt-4">
+            <a href="https://www.facebook.com/ThanhTrung53" target="_blank" class="bento-card p-4 flex flex-col items-center justify-center gap-2 hover:bg-blue-600/10">
+                <i class="fa-brands fa-facebook text-xl text-blue-500"></i>
+                <span class="text-[8px] font-bold uppercase italic">Facebook</span>
             </a>
-            <a href="https://t.me/NgDanhThanhTrung" target="_blank" class="bento-card p-6 flex items-center justify-center gap-4 hover:bg-sky-500/5 group" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fa-brands fa-telegram text-2xl text-sky-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-black uppercase italic text-white">Telegram</span>
+            <a href="https://t.me/NgDanhThanhTrung" target="_blank" class="bento-card p-4 flex flex-col items-center justify-center gap-2 hover:bg-sky-500/10">
+                <i class="fa-brands fa-telegram text-xl text-sky-400"></i>
+                <span class="text-[8px] font-bold uppercase italic">Telegram</span>
             </a>
-            <a href="https://ngdanhthanhtrung.github.io/Bank/" target="_blank" class="bento-card p-6 flex items-center justify-center gap-4 hover:bg-rose-500/5 group col-span-2 md:col-span-1" data-aos="zoom-in" data-aos-delay="300">
-                <i class="fa-solid fa-heart text-2xl text-rose-500 animate-pulse"></i>
-                <span class="text-[10px] font-black uppercase italic text-rose-400">Donate</span>
+            <a href="https://ngdanhthanhtrung.github.io/Bank/" target="_blank" class="bento-card p-4 flex flex-col items-center justify-center gap-2 hover:bg-rose-500/10">
+                <i class="fa-solid fa-heart text-xl text-rose-500"></i>
+                <span class="text-[8px] font-bold uppercase italic text-rose-400">Donate</span>
             </a>
         </div>
 
-        <footer class="text-center opacity-30 text-[9px] font-black tracking-[0.5em] uppercase pb-10 text-white italic">
-            Developed by NgDanhThanhTrung ➔ 2026
+        <footer class="mt-10 text-center opacity-20 text-[8px] font-bold tracking-[0.5em] uppercase italic">
+            Developed by NgDanhThanhTrung
         </footer>
     </div>
 
-    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-8 py-4 rounded-2xl text-white border border-yellow-500/30 opacity-0 transition-all duration-500 z-50 text-[10px] font-black uppercase italic pointer-events-none">
-        Copied Successfully!
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
-        function toggleFaq(el) { 
-            const item = el.closest('.faq-item');
-            item.classList.toggle('active'); 
-            const icon = item.querySelector('.fa-chevron-down');
-            if(icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('active');
+            btn.querySelector('i').style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
+
         async function generate() {
             let user = document.getElementById('user').value.trim().replace(/\s+/g, '').toLowerCase();
             const join_date = document.getElementById('join_date').value;
             const btn = document.getElementById('btnGen');
             if(!user) return alert("Vui lòng nhập Username!");
-            btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processing...';
+            btn.disabled = true; btn.innerText = 'ĐANG XỬ LÝ...';
             try {
                 const res = await fetch('/api/generate', {
                     method: 'POST',
@@ -222,15 +180,14 @@
                     document.getElementById('resultArea').classList.remove('hidden');
                     document.getElementById('resUrl').innerText = data.url;
                     document.getElementById('quickInstall').href = `shadowrocket://config/add/${data.url}`;
-                    btn.innerHTML = 'Completed';
-                } else { alert(data.error); btn.disabled = false; btn.innerHTML = 'Try Again'; }
-            } catch (e) { alert("Lỗi kết nối!"); btn.disabled = false; btn.innerHTML = 'Try Again'; }
+                    btn.innerText = 'Xong!';
+                } else { alert(data.error); btn.disabled = false; btn.innerText = 'THỬ LẠI'; }
+            } catch (e) { alert("Lỗi kết nối!"); btn.disabled = false; btn.innerText = 'THỬ LẠI'; }
         }
+
         function copyLink() {
-            navigator.clipboard.writeText(document.getElementById('resUrl').innerText).then(() => {
-                const t = document.getElementById('toast'); t.style.opacity = '1';
-                setTimeout(() => t.style.opacity = '0', 2500);
-            });
+            navigator.clipboard.writeText(document.getElementById('resUrl').innerText);
+            alert("Đã sao chép link!");
         }
     </script>
 </body>
